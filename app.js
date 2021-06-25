@@ -28,7 +28,7 @@ function getData() {
     id: time
   })
 
-  fs.writeFile(path.join(__dirname, 'data.json'), data, (err) => {
+  fs.writeFile(path.join(__dirname, 'data.json'), JSON.stringify(data), (err) => {
     if (err)
       console.log(err);
     else
