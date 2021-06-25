@@ -11,8 +11,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    workflow_dispatch:
-
     steps:
       - uses: actions/checkout@v2
         with:
