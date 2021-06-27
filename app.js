@@ -16,12 +16,12 @@ function getData() {
         } else {
           console.log('更新完成');
         }
-        res.end();
+        response.send();
       });
     })
     .catch((error) => {
       console.log(error);
-      res.end();
+      response.end();
     })
 }
 
