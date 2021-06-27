@@ -11,14 +11,17 @@ function getData() {
       const data = JSON.stringify(response.data);
 
       fs.writeFile(path.join(__dirname, 'data.json'), data, (err) => {
-        if (err)
+        if (err) {
           console.log(err);
-        else
+        } else {
           console.log('更新完成');
+        }
+        res.end();
       });
     })
     .catch((error) => {
       console.log(error);
+      res.end();
     })
 }
 
