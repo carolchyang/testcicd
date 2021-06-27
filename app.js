@@ -1,6 +1,7 @@
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
+const ws = require('ws');
 
 const googleUrl = 'https://script.google.com/macros/s/AKfycbyFRu0xZkYKd5NhLp5dQI1fFxtmt42kpuBc9nl1ftDI0a2gjSeX/exec';
 const url = 'https://data.coa.gov.tw/Service/OpenData/TransService.aspx?UnitId=tR9TIFWlvquB';
@@ -16,13 +17,16 @@ function getData() {
         } else {
           console.log('更新完成');
         }
-        response.end();
       });
     })
     .catch((error) => {
       console.log(error);
-      response.end();
     })
+
+  ws.onclose = function (e) {
+    console.log('websocket 断开: ' + e.code + ' ' + e.reason + ' ' + e.wasClean)
+    console.log(e)
+  }
 }
 
 getData();
