@@ -13,11 +13,10 @@ function getData() {
       fs.writeFile(path.join(__dirname, 'data.json'), data, (err) => {
         if (err) {
           console.log(err);
-          response.end();
         } else {
           console.log('更新完成');
-          response.end();
         }
+        response.end();
       });
     })
     .catch((error) => {
