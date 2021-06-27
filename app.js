@@ -12,16 +12,14 @@ function getData() {
 
       fs.writeFile(path.join(__dirname, 'data.json'), data, (err) => {
         if (err) {
-          console.log(err);
+          response.send(Json.stringify(err));
         } else {
-          console.log('更新完成');
+          response.send(Json.stringify('更新完成'));
         }
-        response.end();
       });
     })
     .catch((error) => {
-      console.log(error);
-      response.end();
+      response.send(Json.stringify(error));
     })
 }
 
